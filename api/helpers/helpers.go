@@ -7,7 +7,7 @@ import (
 
 // EnforceHTTPS is a function that enforces HTTPS on a URL
 
-func enforceHTTPS(url string) string {
+func EnforceHTTPS(url string) string {
 	if url[:4] != "http" {
 		url = "https://" + url
 	}
@@ -16,7 +16,7 @@ func enforceHTTPS(url string) string {
 
 // resolveDomainError is a function that checks if the domain is valid
 
-func resolveDomainError(url string) bool {
+func RemoveDomainError(url string) bool {
 	if url == os.Getenv("DOMAIN") {
 		return false
 	}
