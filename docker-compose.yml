@@ -1,6 +1,13 @@
 version: "3"
 
 services:
+  react-app:
+    build: client
+    ports:
+      - "80:80"
+    depends_on:
+      - db
+    restart: unless-stopped
   api:
     build: api
     ports:
