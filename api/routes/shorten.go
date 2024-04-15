@@ -30,6 +30,7 @@ type response struct {
 // ShortenURL is a function that takes a URL and returns a shortened URL
 
 func ShortenURL(c *fiber.Ctx) error {
+	// check for the incoming request body
 	body := new(request)
 
 	if err := c.BodyParser(&body); err != nil {
@@ -43,11 +44,10 @@ func ShortenURL(c *fiber.Ctx) error {
 	r2 := database.CreateClient(1)
 	defer r2.Close()
 	val, err := r2.Get(database.Ctx, c.IP()).Result()
-
-	if err != redis.Nil{
-		_ = r2.Set(database.Ctx, c.IP(), os.Getenv("API_QUERY_LIMIT"), 60*60*time.Second).Err()
+	if err == redis.Nil {
+		_ = r2.Set(database.Ctx, c.IP(), os.Getenv("API_QUERY_LIMIT"), 30*60*time.Second).Err()
 	} else {
-		// val, _ := r2.Get(database.Ctx, c.IP()).Result()
+		// val, _ = r2.Get(database.Ctx, c.IP()).Result()
 		valInt, _ := strconv.Atoi(val)
 		if valInt <= 0 {
 			limit, _ := r2.TTL(database.Ctx, c.IP()).Result()
@@ -58,11 +58,10 @@ func ShortenURL(c *fiber.Ctx) error {
 		}
 	}
 
-	// check if the input an actual URL
-
+	// check if the input is an actual URL
 	if !govalidator.IsURL(body.URL) {
 		return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{
-			"error": "invalid URL",
+			"error": "Invalid URL",
 		})
 	}
 
@@ -101,7 +100,7 @@ func ShortenURL(c *fiber.Ctx) error {
 	// set the expiry time
 
 	if body.Expiry == 0 {
-		body.Expiry = 24 * time.Hour
+		body.Expiry = 24 // default expiry of 24 hours
 	}
 
 	// set the key value pair in the database
@@ -118,8 +117,8 @@ func ShortenURL(c *fiber.Ctx) error {
 		URL: body.URL,
 		CustomShort: "",
 		Expiry: body.Expiry,
-		XRateRemaining: 20,
-		XRateLimitReset: 60,
+		XRateRemaining: 10,
+		XRateLimitReset: 30,
 	}
 
 	r2.Decr(database.Ctx, c.IP())
