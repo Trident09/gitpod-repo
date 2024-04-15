@@ -139,11 +139,55 @@ This project is a URL shortening service built with Go using the Fiber framework
 
 ## Contributing
 
-Development is an iterative process, and contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+Thank you for your interest in contributing to the URL Shortener Service! We warmly welcome contributions from the community and would love to see your involvement in making this project even better and more successful.
 
-Check [CONTRIBUTING.md](CONTRIBUTING.md) for detailed instructions on how to contribute.
+**How to Contribute:**
+
+1. **Fork the Repository**: Make a copy of this project to your own account to work on your own version of the URL Shortener Service.
+
+2. **Clone Your Fork**: Bring your forked repository to your local machine to start the development process.
+
+    ```bash
+    git clone https://github.com/Trident09/url-shortener.git
+    cd url-shortener
+    ```
+
+3. **Create a Branch**: A good practice is to create a new branch for each feature or fix so that the main branch remains stable.
+
+    ```bash
+    git checkout -b feature/your-feature-name
+    ```
+
+4. **Make Your Changes**: Abide by the code structure and remember to keep code clean and well-commented.
+
+5. **Commit Your Changes**: Use meaningful commit messages that give context about the changes you've made.
+
+    ```bash
+    git commit -m "Add a concise commit message describing your change"
+    ```
+
+6. **Push to Your Branch**: Share your development work on your branch.
+
+    ```bash
+    git push origin feature/your-feature-name
+    ```
+
+7. **Open a Pull Request**: Go to the repository page on GitHub and click the "Pull Request" button. Use the base repository's main branch as the base and your branch as the compare. Fill in some details about your changes to inform the maintainers.
+
+8. **Review & Collaboration**: After submitting your pull request, the maintainers will review your changes. Be open to further suggestions and collaboration to refine your contribution.
+
+9. **Merging**: Once your pull request is approved, the maintainers will merge your changes into the base branch.
+
+**Development Notes:**
+
+- Test your changes thoroughly to ensure stability and avoid regressions.
+- Update any related documentation to reflect your improvements or fixes.
+- Respect the coding style and best practices already established in the project.
+- Keep in mind that all contributions should be under the same license as the project.
 
 ## License
 
-Distributed under the MIT License. See [LICENSE.md](LICENSE.md) for more information.
+This project is licensed under the MIT License - full details available in the [LICENSE](LICENSE) file. When you contribute to this repository, you are doing so under the same license.
+
+By contributing to the URL Shortener Service, you are creating a community around this project and helping it grow. We are excited to see what you can bring to this project!
 
