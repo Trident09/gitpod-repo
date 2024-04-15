@@ -4,10 +4,9 @@ services:
   react-app:
     build: client
     ports:
-      - "80:80"
+      - "3006:3006"
     depends_on:
       - db
-    restart: unless-stopped
   api:
     build: api
     ports:
