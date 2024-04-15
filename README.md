@@ -136,6 +136,7 @@ This project is a URL shortening service built with Go using the Fiber framework
     - ScreenShot
 
         ![Shorten](https://i.imgur.com/0Nbyz2S.png)
+        ![FrontEnd](https://i.imgur.com/aUDa7Zo.png)
 
 ## Contributing
 
